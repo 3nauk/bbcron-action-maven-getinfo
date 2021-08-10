@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  get-maven-info:
+    runs-on: ubuntu-latest
+    name: maven-info
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get Info Project
+        uses: ./ # Uses an action in the root directory
+        id: maven-info
+      - name: Get the output Bet
+        run: echo "Version: ${{ steps.maven-info.outputs.version}} artifactId: ${{ steps.maven-info.outputs.artifactId}} groupId: ${{ steps.maven-info.outputs.groupId}}"
