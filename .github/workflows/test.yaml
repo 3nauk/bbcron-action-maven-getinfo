@@ -11,7 +11,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: maven-info
       - name: Get the output Bet
-        run: 
-             echo 'The Version is: ' ${{ steps.maven-info.outputs.version }}  &&
-             echo 'The ArtifactId is: ' ${{ steps.maven-info.outputs.artifactId }} && 
-             echo 'The groupId is: ' ${{ steps.maven-info.outputs.groupId }}
+        run: | 
+             echo 'The Version is: ' ${{ steps.maven-info.outputs.version }}  
+             echo 'The ArtifactId is: ' ${{ steps.maven-info.outputs.artifactId }} 
+             echo 'The groupId is: ' ${{ steps.maven-info.outputs.groupId }} 
