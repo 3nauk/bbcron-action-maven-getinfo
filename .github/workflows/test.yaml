@@ -10,6 +10,8 @@ jobs:
       - name: Get Info Project
         uses: ./ # Uses an action in the root directory
         id: maven-info
+        with: 
+          path: ./test/resources
       - name: Get the output Bet
         run: echo "${{ steps.maven-info.outputs.version }}"  
       - run: echo "${{ steps.maven-info.outputs.artifactId }}" 
