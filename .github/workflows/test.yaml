@@ -7,8 +7,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: ls -lta
       - name: Get Info Project
         uses: ./ # Uses an action in the root directory
         id: maven-info
-      - name: Get the output Bet
-        run: echo "Version: ${{ steps.maven-info.outputs.version}} artifactId: ${{ steps.maven-info.outputs.artifactId}} groupId: ${{ steps.maven-info.outputs.groupId}}"
+        with: 
+          path: ./test/resources
+      - run: echo "${{ steps.maven-info.outputs.version }}"  
+      - run: echo "${{ steps.maven-info.outputs.artifactId }}" 
+      - run: echo "${{ steps.maven-info.outputs.groupId }}" 
